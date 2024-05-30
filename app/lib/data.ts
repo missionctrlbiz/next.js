@@ -11,6 +11,22 @@ import {
 import { formatCurrency } from './utils';
 import { unstable_noStore as noStore } from 'next/cache';
 
+
+
+export async function fetchUser(userId: string): Promise<User | undefined> {
+  try {
+    const data = await sql<User>`
+      SELECT id, name
+      FROM users
+      WHERE id = ${userId}`;
+
+    return data.rows[0];
+  } catch (error) {
+    console.error('Database Error:', error);
+    throw new Error('Failed to fetch user.');
+  }
+}
+
 export async function fetchRevenue() {
   noStore();
   // This is equivalent to in fetch(..., {cache: 'no-store'}).
