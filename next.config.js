@@ -1,8 +1,6 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {};
-
-const basePath = process.env.NODE_ENV === 'production' ? '/dashboard' : '';
-
-module.exports = {
-  basePath,
+const nextConfig = {
+  basePath: process.env.NODE_ENV === 'production' ? '/dashboard' : ''
 };
+
+module.exports = nextConfig;
