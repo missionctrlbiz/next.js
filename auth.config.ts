@@ -1,6 +1,7 @@
 import type { NextAuthConfig } from 'next-auth';
 
-export const authConfig = {
+export const authConfig: NextAuthConfig = {
+  basePath: '/dashboard', // Set the base path to '/dashboard'
   pages: {
     signIn: '/login',
   },
@@ -21,4 +22,4 @@ export const authConfig = {
       return true;
     },
   },
-} satisfies NextAuthConfig;
+};
